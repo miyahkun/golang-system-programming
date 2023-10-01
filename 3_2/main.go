@@ -41,4 +41,12 @@ func main() {
 	if _, err3 := io.Copy(os.Stdout, r3); err3 != nil {
 		log.Fatal(err3)
 	}
+
+	fmt.Println("----- With io.CopyN -----")
+
+	r4 := strings.NewReader("some io.Reader stream to be read\n")
+
+	if _, err4 := io.CopyN(os.Stdout, r4, 8); err4 != nil {
+		log.Fatal(err4)
+	}
 }
