@@ -46,3 +46,6 @@ Temporary Items
 ### macOS Patch ###
 # iCloud generated files
 *.icloud
+
+### Debug files
+__debug_bin
