@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"os"
 	"strings"
 )
 
@@ -32,4 +33,12 @@ func main() {
 	}
 
 	fmt.Printf("Size: %d, Content: %s\n", size2, buf2)
+
+	fmt.Println("----- With io.Copy -----")
+
+	r3 := strings.NewReader("some io.Reader stream to be read\n")
+
+	if _, err3 := io.Copy(os.Stdout, r3); err3 != nil {
+		log.Fatal(err3)
+	}
 }
