@@ -22,10 +22,12 @@ func main() {
 
 	r2 := strings.NewReader("Go is general-purpose language designed with systems programming in mind.")
 
-	buf2 := make([]byte, 5)
+	buf2 := make([]byte, 500)
 	size2, err2 := io.ReadFull(r2, buf2)
 
-	if err2 != nil {
+	if err2 == io.ErrUnexpectedEOF {
+		fmt.Printf("%s (%d bytes read)\n", buf2, size2)
+	} else {
 		log.Fatal(err2)
 	}
 
